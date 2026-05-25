@@ -99,6 +99,9 @@ const overseasServices = [
 ];
 
 const reportedJudgments = [
+  "PLD 2024 Sindh 428",
+  "2023 PLC 238",
+  "2021 SCMR 1088",
   "2017 CLC 979",
   "2015 CLD 1095",
   "2014 CLC 174",
