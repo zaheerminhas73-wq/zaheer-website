@@ -21,7 +21,7 @@ import {
 const firm = {
   name: "Zaheer & Zaheer Advocates",
   tagline: "Advocates & Legal Consultants",
-  established: "2001",
+  established: "2002",
   contact: {
     phone: "+923312467797",
     whatsapp: "+923334848228",
