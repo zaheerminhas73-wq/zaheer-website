@@ -28,18 +28,19 @@ const firm = {
     email: "zaminhas@hotmail.com",
   },
   offices: [
-  {
-    name: "Main Office",
-    address: "59-C, 21st Commercial Street, Phase II Extension, DHA, Karachi",
-    mapsUrl:
-      "https://maps.google.com/?q=59-C+21st+Commercial+Street+Phase+II+Extension+DHA+Karachi",
-  },
-  {
-    name: "Bahria Town Office",
-    address: "505, Dominion Business Center-2, Jinnah Avenue, Bahria Town, Karachi",
-    mapsUrl:
-      "https://maps.google.com/?q=505+Dominion+Business+Center-2+Jinnah+Avenue+Bahria+Town+Karachi",
-  },
+    {
+      name: "Main Office",
+      address: "59-C, 21st Commercial Street, Phase II Extension, DHA, Karachi",
+      mapsUrl:
+        "https://maps.google.com/?q=59-C+21st+Commercial+Street+Phase+II+Extension+DHA+Karachi",
+    },
+    {
+      name: "Bahria Town Office",
+      address:
+        "505, Dominion Business Center-2, Jinnah Avenue, Bahria Town, Karachi",
+      mapsUrl:
+        "https://maps.google.com/?q=505+Dominion+Business+Center-2+Jinnah+Avenue+Bahria+Town+Karachi",
+    },
   ],
 };
 
@@ -52,12 +53,36 @@ const stats = [
 ];
 
 const practiceAreas = [
-  ["Corporate & Commercial Advisory", "Structuring, contracts, governance, compliance and business risk advisory.", Briefcase],
-  ["Constitutional & High Court Litigation", "Petitions, commercial disputes, regulatory challenges and public law matters.", Scale],
-  ["Supreme Court Advocacy", "Civil petitions, appeals and constitutional matters before the Supreme Court of Pakistan.", Gavel],
-  ["Labour & Industrial Relations", "Employer-side labour advisory, disciplinary matters, union issues, retrenchment and NIRC matters.", Users],
-  ["Property & Development Disputes", "Title, possession, development, municipal, Bahria Town and real estate disputes.", Building2],
-  ["Regulatory & Compliance", "SESSI, EOBI, statutory compliance, licensing, enforcement and advisory work.", Shield],
+  [
+    "Corporate & Commercial Advisory",
+    "Corporate structuring, contracts, governance, compliance and business risk advisory.",
+    Briefcase,
+  ],
+  [
+    "Constitutional & High Court Litigation",
+    "Constitutional petitions, commercial disputes, regulatory challenges and public law matters.",
+    Scale,
+  ],
+  [
+    "Supreme Court Advocacy",
+    "Civil petitions, appeals and constitutional matters before the Supreme Court of Pakistan.",
+    Gavel,
+  ],
+  [
+    "Labour & Industrial Relations",
+    "Employer-side labour advisory, disciplinary matters, union issues, retrenchment and NIRC matters.",
+    Users,
+  ],
+  [
+    "Property & Development Disputes",
+    "Title, possession, development, municipal, Bahria Town and real estate disputes.",
+    Building2,
+  ],
+  [
+    "Regulatory & Compliance",
+    "SESSI, EOBI, statutory compliance, licensing, enforcement and advisory work.",
+    Shield,
+  ],
 ];
 
 const overseasServices = [
@@ -71,6 +96,29 @@ const overseasServices = [
   "Remote Case Handling",
   "Succession Certificates & Letters of Administration",
   "Protection Against Illegal Occupation or Fraud",
+];
+
+const reportedJudgments = [
+  "2017 CLC 979",
+  "2015 CLD 1095",
+  "2014 CLC 174",
+  "2013 PTD 813",
+  "2011 CLC 664",
+  "2009 YLR 148",
+  "2009 CLD 665",
+  "PLD 2008 Kar. 536",
+  "2007 YLR 2982",
+  "2006 CLD 889",
+  "2005 CLC 797",
+  "2004 YLR 2127",
+  "PLD 2006 Kar. 314",
+  "SBLR 2009 1760",
+  "SBLR 2009 1315",
+  "SBLR 2006 706",
+  "2020 CLCN 47",
+  "2002 CLD 92 (Journal)",
+  "2002 CLD 65 (Journal)",
+  "2003 CLD 46 (Journal)",
 ];
 
 const teamMembers = [
@@ -155,19 +203,25 @@ const teamMembers = [
 ];
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 22 },
   visible: { opacity: 1, y: 0 },
 };
 
 function SectionHeading({ eyebrow, title, description }: any) {
   return (
     <div className="max-w-3xl">
-      <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-amber-400/25 bg-amber-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-amber-300">
-        <span className="h-1.5 w-1.5 rounded-full bg-amber-300" />
+      <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#D4A854]/25 bg-[#D4A854]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-[#D4A854]">
+        <span className="h-1.5 w-1.5 rounded-full bg-[#D4A854]" />
         {eyebrow}
       </div>
-      <h2 className="text-3xl font-semibold tracking-tight text-white md:text-4xl">{title}</h2>
-      {description && <p className="mt-4 text-base leading-7 text-slate-300 md:text-lg">{description}</p>}
+      <h2 className="text-3xl font-semibold tracking-tight text-[#F5F1E8] md:text-4xl">
+        {title}
+      </h2>
+      {description && (
+        <p className="mt-4 text-base leading-7 text-[#B8BDC7] md:text-lg">
+          {description}
+        </p>
+      )}
     </div>
   );
 }
@@ -179,7 +233,7 @@ function ContactIconButton({ href, label, icon: Icon, external = false }: any) {
       aria-label={label}
       target={external ? "_blank" : undefined}
       rel={external ? "noreferrer" : undefined}
-      className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-slate-200 transition hover:border-amber-300/40 hover:bg-amber-400/10 hover:text-amber-300"
+      className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-[#D4A854]/20 bg-[#1A1D24] text-[#F5F1E8] transition hover:border-[#D4A854]/60 hover:bg-[#D4A854]/10 hover:text-[#E6BE6D]"
     >
       <Icon className="h-5 w-5" />
     </a>
@@ -195,7 +249,7 @@ function InitialsAvatar({ name }: any) {
     .toUpperCase();
 
   return (
-    <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-slate-700 to-slate-950 text-3xl font-semibold text-amber-300">
+    <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#1A1D24] to-[#0F1115] text-3xl font-semibold text-[#D4A854]">
       {initials}
     </div>
   );
@@ -205,9 +259,9 @@ function TeamCard({ name, role, image, bio }: any) {
   return (
     <motion.div
       variants={fadeUp}
-      className="overflow-hidden rounded-3xl border border-white/10 bg-white/5 transition hover:-translate-y-1 hover:border-amber-300/25"
+      className="overflow-hidden rounded-3xl border border-[#D4A854]/15 bg-[#1A1D24] shadow-xl shadow-black/20 transition hover:-translate-y-1 hover:border-[#D4A854]/45"
     >
-      <div className="relative aspect-[4/4.3] overflow-hidden bg-slate-800">
+      <div className="relative aspect-[4/4.3] overflow-hidden bg-[#111318]">
         <img
           src={image}
           alt={name}
@@ -223,12 +277,12 @@ function TeamCard({ name, role, image, bio }: any) {
         <div className="hidden h-full w-full">
           <InitialsAvatar name={name} />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0F1115]/80 via-[#0F1115]/10 to-transparent" />
       </div>
       <div className="p-5">
-        <h3 className="text-lg font-semibold text-white">{name}</h3>
-        <p className="mt-1 text-sm text-amber-300">{role}</p>
-        <p className="mt-3 text-sm leading-7 text-slate-300">{bio}</p>
+        <h3 className="text-lg font-semibold text-[#F5F1E8]">{name}</h3>
+        <p className="mt-1 text-sm text-[#D4A854]">{role}</p>
+        <p className="mt-3 text-sm leading-7 text-[#B8BDC7]">{bio}</p>
       </div>
     </motion.div>
   );
@@ -236,38 +290,40 @@ function TeamCard({ name, role, image, bio }: any) {
 
 export default function ZaheerLawFirmWebsite() {
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-100 antialiased">
+    <div className="min-h-screen bg-[#0F1115] text-[#F5F1E8] antialiased">
       <a
         href={`https://wa.me/${firm.contact.whatsapp.replace(/\+/g, "")}`}
         target="_blank"
         rel="noreferrer"
         aria-label="Chat on WhatsApp"
-        className="fixed bottom-5 right-5 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500 text-white shadow-2xl transition hover:scale-105"
+        className="fixed bottom-5 right-5 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-emerald-600 text-white shadow-2xl transition hover:scale-105"
       >
         <MessageCircle className="h-7 w-7" />
       </a>
 
-      <header className="sticky top-0 z-40 border-b border-white/10 bg-slate-900/90 backdrop-blur-xl">
+      <header className="sticky top-0 z-40 border-b border-[#D4A854]/15 bg-[#0F1115]/95 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
           <a href="#home" className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-400/15 ring-1 ring-amber-300/20">
-              <Scale className="h-5 w-5 text-amber-300" />
+            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#D4A854]/10 ring-1 ring-[#D4A854]/30">
+              <Scale className="h-5 w-5 text-[#D4A854]" />
             </div>
             <div>
-              <div className="text-sm font-semibold uppercase tracking-[0.22em] text-amber-300">
+              <div className="text-sm font-semibold uppercase tracking-[0.22em] text-[#D4A854]">
                 Zaheer & Zaheer
               </div>
-              <div className="text-sm text-slate-300">Advocates & Legal Consultants</div>
+              <div className="text-sm text-[#B8BDC7]">
+                Advocates & Legal Consultants
+              </div>
             </div>
           </a>
 
-          <nav className="hidden items-center gap-7 text-sm text-slate-300 lg:flex">
-            <a href="#about" className="hover:text-white">About</a>
-            <a href="#practice-areas" className="hover:text-white">Practice Areas</a>
-            <a href="#overseas" className="hover:text-white">Overseas Pakistanis</a>
-            <a href="#credentials" className="hover:text-white">Credentials</a>
-            <a href="#team" className="hover:text-white">Team</a>
-            <a href="#contact" className="hover:text-white">Contact</a>
+          <nav className="hidden items-center gap-7 text-sm text-[#B8BDC7] lg:flex">
+            <a href="#about" className="hover:text-[#F5F1E8]">About</a>
+            <a href="#practice-areas" className="hover:text-[#F5F1E8]">Practice Areas</a>
+            <a href="#overseas" className="hover:text-[#F5F1E8]">Overseas Pakistanis</a>
+            <a href="#reported-judgments" className="hover:text-[#F5F1E8]">Reported Judgments</a>
+            <a href="#team" className="hover:text-[#F5F1E8]">Team</a>
+            <a href="#contact" className="hover:text-[#F5F1E8]">Contact</a>
           </nav>
 
           <div className="hidden items-center gap-3 md:flex">
@@ -283,20 +339,20 @@ export default function ZaheerLawFirmWebsite() {
         </div>
       </header>
 
-      <div className="sticky top-[76px] z-30 border-b border-white/10 bg-slate-900/95 px-4 py-3 backdrop-blur-lg lg:hidden">
+      <div className="sticky top-[76px] z-30 border-b border-[#D4A854]/15 bg-[#0F1115]/95 px-4 py-3 backdrop-blur-lg lg:hidden">
         <div className="flex gap-3 overflow-x-auto text-sm">
           {[
             ["About", "#about"],
             ["Practice", "#practice-areas"],
             ["Overseas", "#overseas"],
-            ["Credentials", "#credentials"],
+            ["Judgments", "#reported-judgments"],
             ["Team", "#team"],
             ["Contact", "#contact"],
           ].map(([label, href]) => (
             <a
               key={label}
               href={href}
-              className="shrink-0 rounded-full border border-white/10 px-4 py-2 text-slate-200"
+              className="shrink-0 rounded-full border border-[#D4A854]/20 bg-[#1A1D24] px-4 py-2 text-[#F5F1E8]"
             >
               {label}
             </a>
@@ -308,26 +364,30 @@ export default function ZaheerLawFirmWebsite() {
         <section id="home" className="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28">
           <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
             <motion.div initial="hidden" animate="visible" variants={fadeUp} transition={{ duration: 0.6 }}>
-              <div className="mb-6 inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.18em] text-slate-300">
+              <div className="mb-6 inline-flex rounded-full border border-[#D4A854]/20 bg-[#D4A854]/10 px-4 py-2 text-xs uppercase tracking-[0.18em] text-[#D4A854]">
                 Established {firm.established}
               </div>
-              <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl">
+              <h1 className="text-4xl font-semibold tracking-tight text-[#F5F1E8] sm:text-5xl md:text-6xl">
                 {firm.name}
               </h1>
-              <p className="mt-5 text-lg text-amber-300 md:text-xl">{firm.tagline}</p>
-              <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 md:text-lg">
-                Karachi-based law firm focused on superior court advocacy, corporate litigation, labour and industrial relations, property disputes, regulatory matters, and legal services for overseas Pakistanis.
+              <p className="mt-5 text-lg text-[#D4A854] md:text-xl">
+                {firm.tagline}
+              </p>
+              <p className="mt-6 max-w-2xl text-base leading-8 text-[#B8BDC7] md:text-lg">
+                Karachi-based law firm focused on superior court advocacy, corporate litigation,
+                labour and industrial relations, property disputes, regulatory matters, and
+                legal services for overseas Pakistanis.
               </p>
               <div className="mt-10 flex flex-wrap gap-4">
                 <a
                   href="#contact"
-                  className="rounded-2xl bg-amber-400 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-amber-300"
+                  className="rounded-2xl bg-[#D4A854] px-5 py-3 text-sm font-semibold text-[#0F1115] transition hover:bg-[#E6BE6D]"
                 >
                   Request Consultation
                 </a>
                 <a
                   href="#overseas"
-                  className="rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+                  className="rounded-2xl border border-[#D4A854]/25 bg-[#1A1D24] px-5 py-3 text-sm font-semibold text-[#F5F1E8] transition hover:border-[#D4A854]/60"
                 >
                   Overseas Pakistanis
                 </a>
@@ -335,18 +395,22 @@ export default function ZaheerLawFirmWebsite() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
-              className="rounded-[2rem] border border-white/10 bg-gradient-to-br from-slate-800 to-slate-950 p-6"
+              className="rounded-[2rem] border border-[#D4A854]/20 bg-[#1A1D24] p-6 shadow-2xl shadow-black/30"
             >
-              <p className="text-xs uppercase tracking-[0.2em] text-amber-300">Firm Profile</p>
-              <h3 className="mt-2 text-2xl font-semibold text-white">Authority, strategy and courtroom depth</h3>
+              <p className="text-xs uppercase tracking-[0.2em] text-[#D4A854]">
+                Firm Profile
+              </p>
+              <h3 className="mt-2 text-2xl font-semibold text-[#F5F1E8]">
+                Authority, strategy and courtroom depth
+              </h3>
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 {stats.map(([value, label]) => (
-                  <div key={label} className="rounded-2xl border border-white/10 bg-white/5 p-5">
-                    <div className="text-3xl font-semibold text-amber-300">{value}</div>
-                    <div className="mt-2 text-sm text-slate-300">{label}</div>
+                  <div key={label} className="rounded-2xl border border-[#D4A854]/15 bg-[#0F1115] p-5">
+                    <div className="text-3xl font-semibold text-[#D4A854]">{value}</div>
+                    <div className="mt-2 text-sm text-[#B8BDC7]">{label}</div>
                   </div>
                 ))}
               </div>
@@ -368,15 +432,15 @@ export default function ZaheerLawFirmWebsite() {
               "Employer-Side Labour Strategy",
               "Regulatory Representation",
             ].map((item) => (
-              <div key={item} className="rounded-3xl border border-white/10 bg-white/5 p-6">
-                <CheckCircle2 className="h-6 w-6 text-amber-300" />
-                <h3 className="mt-4 text-lg font-semibold text-white">{item}</h3>
+              <div key={item} className="rounded-3xl border border-[#D4A854]/15 bg-[#1A1D24] p-6">
+                <CheckCircle2 className="h-6 w-6 text-[#D4A854]" />
+                <h3 className="mt-4 text-lg font-semibold text-[#F5F1E8]">{item}</h3>
               </div>
             ))}
           </div>
         </section>
 
-        <section id="practice-areas" className="border-y border-white/10 bg-slate-800/60">
+        <section id="practice-areas" className="border-y border-[#D4A854]/15 bg-[#14171D]">
           <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
             <SectionHeading
               eyebrow="Practice Areas"
@@ -392,13 +456,13 @@ export default function ZaheerLawFirmWebsite() {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
-                  className="rounded-3xl border border-white/10 bg-slate-900/70 p-6 transition hover:-translate-y-1 hover:border-amber-300/30"
+                  className="rounded-3xl border border-[#D4A854]/15 bg-[#1A1D24] p-6 transition hover:-translate-y-1 hover:border-[#D4A854]/45"
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-400/10">
-                    <Icon className="h-6 w-6 text-amber-300" />
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#D4A854]/10">
+                    <Icon className="h-6 w-6 text-[#D4A854]" />
                   </div>
-                  <h3 className="mt-5 text-xl font-semibold text-white">{title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-300">{description}</p>
+                  <h3 className="mt-5 text-xl font-semibold text-[#F5F1E8]">{title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-[#B8BDC7]">{description}</p>
                 </motion.div>
               ))}
             </div>
@@ -415,23 +479,25 @@ export default function ZaheerLawFirmWebsite() {
 
             <div className="grid gap-4 sm:grid-cols-2">
               {overseasServices.map((service) => (
-                <div key={service} className="flex gap-3 rounded-3xl border border-white/10 bg-white/5 p-5">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-amber-300" />
-                  <p className="text-sm leading-7 text-slate-300">{service}</p>
+                <div key={service} className="flex gap-3 rounded-3xl border border-[#D4A854]/15 bg-[#1A1D24] p-5">
+                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-[#D4A854]" />
+                  <p className="text-sm leading-7 text-[#B8BDC7]">{service}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="mt-10 rounded-[2rem] border border-amber-300/20 bg-amber-400/10 p-6">
-            <h3 className="text-xl font-semibold text-white">Remote Legal Handling</h3>
-            <p className="mt-3 text-sm leading-7 text-slate-300">
-              Matters may be managed through WhatsApp, email, video consultation and properly executed authority documents, enabling clients abroad to pursue or defend legal proceedings in Pakistan without unnecessary travel.
+          <div className="mt-10 rounded-[2rem] border border-[#D4A854]/25 bg-[#D4A854]/10 p-6">
+            <h3 className="text-xl font-semibold text-[#F5F1E8]">Remote Legal Handling</h3>
+            <p className="mt-3 text-sm leading-7 text-[#B8BDC7]">
+              Matters may be managed through WhatsApp, email, video consultation and properly
+              executed authority documents, enabling clients abroad to pursue or defend legal
+              proceedings in Pakistan without unnecessary travel.
             </p>
           </div>
         </section>
 
-        <section id="credentials" className="border-y border-white/10 bg-slate-800/50">
+        <section id="credentials" className="border-y border-[#D4A854]/15 bg-[#14171D]">
           <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
             <SectionHeading
               eyebrow="Credentials"
@@ -448,36 +514,57 @@ export default function ZaheerLawFirmWebsite() {
                 "Ongoing advisory and retainer relationships.",
                 "Representation in high-value commercial and regulatory disputes.",
               ].map((item) => (
-                <div key={item} className="flex gap-4 rounded-3xl border border-white/10 bg-white/5 p-5">
-                  <Award className="mt-1 h-5 w-5 shrink-0 text-amber-300" />
-                  <p className="text-sm leading-7 text-slate-300">{item}</p>
+                <div key={item} className="flex gap-4 rounded-3xl border border-[#D4A854]/15 bg-[#1A1D24] p-5">
+                  <Award className="mt-1 h-5 w-5 shrink-0 text-[#D4A854]" />
+                  <p className="text-sm leading-7 text-[#B8BDC7]">{item}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="team" className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+        <section id="reported-judgments" className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
           <SectionHeading
-            eyebrow="Our Team"
-            title="Partners, associates and administrative support"
-            description="A structured team supporting litigation, advisory, drafting, research, coordination and client representation."
+            eyebrow="Reported Judgments"
+            title="Reported cases and legal precedents"
+            description="The firm has contributed to reported judgments across commercial, constitutional, banking, civil, regulatory and corporate matters. Selected reported citations include:"
           />
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.06 } } }}
-            className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-          >
-            {teamMembers.map((member) => (
-              <TeamCard key={member.name} {...member} />
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {reportedJudgments.map((citation) => (
+              <div
+                key={citation}
+                className="rounded-2xl border border-[#D4A854]/20 bg-[#1A1D24] px-5 py-4 text-sm font-semibold tracking-wide text-[#D4A854]"
+              >
+                {citation}
+              </div>
             ))}
-          </motion.div>
+          </div>
         </section>
 
-        <section id="contact" className="border-t border-white/10 bg-slate-900/70">
+        <section id="team" className="border-y border-[#D4A854]/15 bg-[#14171D]">
+          <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+            <SectionHeading
+              eyebrow="Our Team"
+              title="Partners, associates and administrative support"
+              description="A structured team supporting litigation, advisory, drafting, research, coordination and client representation."
+            />
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.06 } } }}
+              className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+            >
+              {teamMembers.map((member) => (
+                <TeamCard key={member.name} {...member} />
+              ))}
+            </motion.div>
+          </div>
+        </section>
+
+        <section id="contact" className="bg-[#0F1115]">
           <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
             <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
               <div>
@@ -501,26 +588,28 @@ export default function ZaheerLawFirmWebsite() {
 
               <div className="grid gap-6">
                 {firm.offices.map((office, index) => (
-                  <div key={office.name} className="rounded-3xl border border-white/10 bg-white/5 p-6">
+                  <div key={office.name} className="rounded-3xl border border-[#D4A854]/15 bg-[#1A1D24] p-6">
                     <div className="flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-amber-400/10">
-                        <MapPin className="h-5 w-5 text-amber-300" />
+                      <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#D4A854]/10">
+                        <MapPin className="h-5 w-5 text-[#D4A854]" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-white">{office.name}</h3>
+                        <h3 className="text-lg font-semibold text-[#F5F1E8]">{office.name}</h3>
                         {index === 0 && (
-                          <p className="mt-1 text-xs uppercase tracking-[0.18em] text-amber-300">Primary location</p>
+                          <p className="mt-1 text-xs uppercase tracking-[0.18em] text-[#D4A854]">
+                            Primary location
+                          </p>
                         )}
                       </div>
                     </div>
 
-                    <p className="mt-4 text-sm leading-7 text-slate-300">{office.address}</p>
+                    <p className="mt-4 text-sm leading-7 text-[#B8BDC7]">{office.address}</p>
 
                     <a
                       href={office.mapsUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="mt-5 inline-flex items-center gap-2 rounded-2xl bg-amber-400 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-amber-300"
+                      className="mt-5 inline-flex items-center gap-2 rounded-2xl bg-[#D4A854] px-4 py-3 text-sm font-semibold text-[#0F1115] transition hover:bg-[#E6BE6D]"
                     >
                       Open Map
                       <ExternalLink className="h-4 w-4" />
@@ -533,15 +622,15 @@ export default function ZaheerLawFirmWebsite() {
         </section>
       </main>
 
-      <footer className="border-t border-white/10 bg-slate-950">
+      <footer className="border-t border-[#D4A854]/15 bg-[#0A0C10]">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-10 md:flex-row md:items-center md:justify-between lg:px-8">
           <div>
-            <div className="text-lg font-semibold text-white">{firm.name}</div>
-            <div className="mt-1 text-sm text-slate-400">{firm.tagline}</div>
-            <div className="mt-2 text-sm text-slate-500">Established {firm.established}</div>
+            <div className="text-lg font-semibold text-[#F5F1E8]">{firm.name}</div>
+            <div className="mt-1 text-sm text-[#B8BDC7]">{firm.tagline}</div>
+            <div className="mt-2 text-sm text-[#7E8490]">Established {firm.established}</div>
           </div>
 
-          <div className="text-sm text-slate-500">
+          <div className="text-sm text-[#7E8490]">
             © {new Date().getFullYear()} Zaheer & Zaheer Advocates. All rights reserved.
           </div>
         </div>
