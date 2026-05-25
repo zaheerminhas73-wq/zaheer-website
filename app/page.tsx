@@ -28,18 +28,18 @@ const firm = {
     email: "zaminhas@hotmail.com",
   },
   offices: [
-    {
-      name: "Main Office",
-      address: 'Abu Bakar Tower, 135-A, Midway Commercial "A", Bahria Town, Karachi',
-      mapsUrl:
-        "https://maps.google.com/?q=Abu+Bakar+Tower+135-A+Midway+Commercial+A+Bahria+Town+Karachi",
-    },
-    {
-      name: "DHA Office",
-      address: "59-C, 21st Commercial Street, Phase II Extension, DHA, Karachi",
-      mapsUrl:
-        "https://maps.google.com/?q=59-C+21st+Commercial+Street+Phase+II+Extension+DHA+Karachi",
-    },
+  {
+    name: "Main Office",
+    address: "59-C, 21st Commercial Street, Phase II Extension, DHA, Karachi",
+    mapsUrl:
+      "https://maps.google.com/?q=59-C+21st+Commercial+Street+Phase+II+Extension+DHA+Karachi",
+  },
+  {
+    name: "Bahria Town Office",
+    address: "505, Dominion Business Center-2, Jinnah Avenue, Bahria Town, Karachi",
+    mapsUrl:
+      "https://maps.google.com/?q=505+Dominion+Business+Center-2+Jinnah+Avenue+Bahria+Town+Karachi",
+  },
   ],
 };
 
