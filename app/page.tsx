@@ -45,7 +45,7 @@ const firm = {
 };
 
 const stats = [
-  ["2001", "Established"],
+  ["2002", "Established"],
   ["250+", "Corporate Clients"],
   ["1500+", "High Court Matters"],
   ["200+", "Supreme Court Matters"],
