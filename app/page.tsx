@@ -824,7 +824,7 @@ export default function ZaheerLawFirmWebsite() {
           <a href="#home" className="brand">
             <div className="brand-mark"><LawMark size={32} /></div>
             <div>
-              <div className="brand-title">Zaheer &amp; Zaheer</div>
+              <div className="brand-title">Zaheer &amp; Zaheer Advocates</div>
               <div className="brand-subtitle">Advocates &amp; Legal Consultants</div>
             </div>
           </a>
