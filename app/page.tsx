@@ -225,34 +225,11 @@ function LegalIllustration() {
   return (
     <div className="visual-card" aria-label="Legal visual illustration">
       <div className="visual-court">
-        <svg viewBox="0 0 620 420" role="img" aria-label="Court building and scales illustration">
-          <defs>
-            <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
-              <stop offset="0" stopColor="#fbf6ec" />
-              <stop offset="1" stopColor="#e9dbc3" />
-            </linearGradient>
-          </defs>
-          <rect width="620" height="420" fill="url(#g1)" />
-          <circle cx="520" cy="80" r="105" fill="rgba(160,123,50,.12)" />
-          <path d="M90 300h440v35H90z" fill="#112744" />
-          <path d="M125 170h370v35H125z" fill="#14365f" />
-          <path d="M100 205h420v22H100z" fill="#c79b3b" />
-          <path d="M310 90 130 170h360L310 90Z" fill="#112744" />
-          {[160, 230, 300, 370, 440].map((x) => (
-            <g key={x}>
-              <rect x={x} y="225" width="34" height="75" fill="#f7efe0" />
-              <rect x={x - 5} y="215" width="44" height="12" fill="#c79b3b" />
-              <rect x={x - 5} y="300" width="44" height="12" fill="#c79b3b" />
-            </g>
-          ))}
-          <g transform="translate(410 52)" stroke="#112744" strokeWidth="6" strokeLinecap="round" fill="none">
-            <path d="M45 8v118" />
-            <path d="M10 35h70" />
-            <path d="M22 35 5 82h34L22 35Z" />
-            <path d="M68 35 51 82h34L68 35Z" />
-            <path d="M20 120h50" />
-          </g>
-        </svg>
+      <img
+  src="/team/images/supreme-court-pakistan.jpg"
+  alt="Supreme Court of Pakistan"
+  className="feature-img"
+/>
       </div>
       <div className="visual-caption">
         <span>Superior Courts</span>
