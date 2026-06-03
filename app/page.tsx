@@ -1,41 +1,29 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
-import {
-  Award,
-  Briefcase,
-  Building2,
-  CheckCircle2,
-  ExternalLink,
-  Gavel,
-  Mail,
-  MapPin,
-  MessageCircle,
-  Phone,
-  Scale,
-  Shield,
-  Users,
-} from "lucide-react";
 
 const firm = {
   name: "Zaheer & Zaheer Advocates",
   tagline: "Advocates & Legal Consultants",
   established: "2002",
+  foundingPartner: "Zaheer Minhas",
+  designation: "Advocate Supreme Court of Pakistan",
   contact: {
     phone: "+923312467797",
-    whatsapp: "+923334848228",
+    whatsapp: "923334848228",
     email: "zaminhas@hotmail.com",
   },
   offices: [
     {
-      name: "Main Office",
+      label: "Primary Office",
+      name: "DHA, Karachi",
       address: "59-C, 21st Commercial Street, Phase II Extension, DHA, Karachi",
       mapsUrl:
         "https://maps.google.com/?q=59-C+21st+Commercial+Street+Phase+II+Extension+DHA+Karachi",
     },
     {
-      name: "Bahria Town Office",
+      label: "Branch Office",
+      name: "Bahria Town, Karachi",
       address:
         "505, Dominion Business Center-2, Jinnah Avenue, Bahria Town, Karachi",
       mapsUrl:
@@ -45,44 +33,44 @@ const firm = {
 };
 
 const stats = [
-  ["2002", "Established"],
-  ["250+", "Corporate Clients"],
-  ["1500+", "High Court Matters"],
-  ["200+", "Supreme Court Matters"],
-  ["25+", "Reported Judgments"],
+  { value: "2002", label: "Established" },
+  { value: "250+", label: "Corporate Clients" },
+  { value: "1500+", label: "High Court Matters" },
+  { value: "200+", label: "Supreme Court Matters" },
+  { value: "25+", label: "Reported Judgments" },
 ];
 
 const practiceAreas = [
-  [
-    "Corporate & Commercial Advisory",
-    "Corporate structuring, contracts, governance, compliance and business risk advisory.",
-    Briefcase,
-  ],
-  [
-    "Constitutional & High Court Litigation",
-    "Constitutional petitions, commercial disputes, regulatory challenges and public law matters.",
-    Scale,
-  ],
-  [
-    "Supreme Court Advocacy",
-    "Civil petitions, appeals and constitutional matters before the Supreme Court of Pakistan.",
-    Gavel,
-  ],
-  [
-    "Labour & Industrial Relations",
-    "Employer-side labour advisory, disciplinary matters, union issues, retrenchment and NIRC matters.",
-    Users,
-  ],
-  [
-    "Property & Development Disputes",
-    "Title, possession, development, municipal, Bahria Town and real estate disputes.",
-    Building2,
-  ],
-  [
-    "Regulatory & Compliance",
-    "SESSI, EOBI, statutory compliance, licensing, enforcement and advisory work.",
-    Shield,
-  ],
+  {
+    num: "01",
+    name: "Corporate & Commercial Advisory",
+    desc: "Corporate structuring, contracts, governance, compliance and business risk advisory.",
+  },
+  {
+    num: "02",
+    name: "Constitutional & High Court Litigation",
+    desc: "Constitutional petitions, commercial disputes, regulatory challenges and public law matters.",
+  },
+  {
+    num: "03",
+    name: "Supreme Court Advocacy",
+    desc: "Civil petitions, appeals and constitutional matters before the Supreme Court of Pakistan.",
+  },
+  {
+    num: "04",
+    name: "Labour & Industrial Relations",
+    desc: "Employer-side advisory, disciplinary matters, union issues, retrenchment and NIRC matters.",
+  },
+  {
+    num: "05",
+    name: "Property & Development Disputes",
+    desc: "Title, possession, development, municipal, Bahria Town and real estate disputes.",
+  },
+  {
+    num: "06",
+    name: "Regulatory & Compliance",
+    desc: "SESSI, EOBI, statutory compliance, licensing, enforcement and advisory work.",
+  },
 ];
 
 const overseasServices = [
@@ -94,8 +82,17 @@ const overseasServices = [
   "Power of Attorney",
   "Court Representation in Pakistan",
   "Remote Case Handling",
-  "Succession Certificates & Letters of Administration",
-  "Protection Against Illegal Occupation or Fraud",
+  "Succession Certificates",
+  "Protection against illegal occupation or fraud",
+];
+
+const credentials = [
+  "Over 250 corporate clients served across Pakistan.",
+  "Over 1,500 corporate matters handled before High Courts.",
+  "Over 200 matters handled before the Supreme Court of Pakistan.",
+  "25+ reported judgments across diverse areas of law.",
+  "Ongoing advisory and retainer relationships with institutional clients.",
+  "Representation in high-value commercial, labour and regulatory disputes.",
 ];
 
 const reportedJudgments = [
@@ -119,9 +116,9 @@ const reportedJudgments = [
   "SBLR 2009 1315",
   "SBLR 2006 706",
   "2020 CLCN 47",
-  "2002 CLD 92 (Journal)",
-  "2002 CLD 65 (Journal)",
-  "2003 CLD 46 (Journal)",
+  "2002 CLD 92",
+  "2002 CLD 65",
+  "2003 CLD 46",
 ];
 
 const teamMembers = [
@@ -147,7 +144,7 @@ const teamMembers = [
     name: "Minhal Zaheer",
     role: "Partner",
     image: "/team/minhal-zaheer.jpg",
-    bio: "Partner associated with the firm’s developing practice and institutional support structure.",
+    bio: "Partner associated with the firm's developing practice and institutional support structure.",
   },
   {
     name: "Fizza Zaheer",
@@ -205,439 +202,829 @@ const teamMembers = [
   },
 ];
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 22 },
-  visible: { opacity: 1, y: 0 },
-};
-
-function SectionHeading({ eyebrow, title, description }: any) {
-  return (
-    <div className="max-w-3xl">
-      <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#D4A854]/25 bg-[#D4A854]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-[#D4A854]">
-        <span className="h-1.5 w-1.5 rounded-full bg-[#D4A854]" />
-        {eyebrow}
-      </div>
-      <h2 className="text-3xl font-semibold tracking-tight text-[#F5F1E8] md:text-4xl">
-        {title}
-      </h2>
-      {description && (
-        <p className="mt-4 text-base leading-7 text-[#B8BDC7] md:text-lg">
-          {description}
-        </p>
-      )}
-    </div>
-  );
-}
-
-function ContactIconButton({ href, label, icon: Icon, external = false }: any) {
-  return (
-    <a
-      href={href}
-      aria-label={label}
-      target={external ? "_blank" : undefined}
-      rel={external ? "noreferrer" : undefined}
-      className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-[#D4A854]/20 bg-[#1A1D24] text-[#F5F1E8] transition hover:border-[#D4A854]/60 hover:bg-[#D4A854]/10 hover:text-[#E6BE6D]"
-    >
-      <Icon className="h-5 w-5" />
-    </a>
-  );
-}
-
-function InitialsAvatar({ name }: any) {
-  const initials = name
+function initials(name: string) {
+  return name
     .split(" ")
-    .map((p: string) => p[0])
+    .map((part) => part[0])
     .join("")
     .slice(0, 2)
     .toUpperCase();
+}
 
+function LawMark({ size = 46 }: { size?: number }) {
   return (
-    <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#1A1D24] to-[#08111F] text-3xl font-semibold text-[#D4A854]">
-      {initials}
+    <svg width={size} height={size} viewBox="0 0 64 64" aria-hidden="true">
+      <path d="M32 5 10 16v15c0 13.7 9.2 22.8 22 28 12.8-5.2 22-14.3 22-28V16L32 5Z" fill="none" stroke="currentColor" strokeWidth="2" />
+      <path d="M21 28h22M25 36h14M32 18v30" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+      <circle cx="32" cy="18" r="3" fill="currentColor" />
+    </svg>
+  );
+}
+
+function LegalIllustration() {
+  return (
+    <div className="visual-card" aria-label="Legal visual illustration">
+      <div className="visual-court">
+        <svg viewBox="0 0 620 420" role="img" aria-label="Court building and scales illustration">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stopColor="#fbf6ec" />
+              <stop offset="1" stopColor="#e9dbc3" />
+            </linearGradient>
+          </defs>
+          <rect width="620" height="420" fill="url(#g1)" />
+          <circle cx="520" cy="80" r="105" fill="rgba(160,123,50,.12)" />
+          <path d="M90 300h440v35H90z" fill="#112744" />
+          <path d="M125 170h370v35H125z" fill="#14365f" />
+          <path d="M100 205h420v22H100z" fill="#c79b3b" />
+          <path d="M310 90 130 170h360L310 90Z" fill="#112744" />
+          {[160, 230, 300, 370, 440].map((x) => (
+            <g key={x}>
+              <rect x={x} y="225" width="34" height="75" fill="#f7efe0" />
+              <rect x={x - 5} y="215" width="44" height="12" fill="#c79b3b" />
+              <rect x={x - 5} y="300" width="44" height="12" fill="#c79b3b" />
+            </g>
+          ))}
+          <g transform="translate(410 52)" stroke="#112744" strokeWidth="6" strokeLinecap="round" fill="none">
+            <path d="M45 8v118" />
+            <path d="M10 35h70" />
+            <path d="M22 35 5 82h34L22 35Z" />
+            <path d="M68 35 51 82h34L68 35Z" />
+            <path d="M20 120h50" />
+          </g>
+        </svg>
+      </div>
+      <div className="visual-caption">
+        <span>Superior Courts</span>
+        <strong>Litigation · Advisory · Regulatory Strategy</strong>
+      </div>
     </div>
   );
 }
 
-function TeamCard({ name, role, image, bio }: any) {
+function SectionIntro({ num, eyebrow, title, children }: { num: string; eyebrow: string; title: React.ReactNode; children?: React.ReactNode }) {
   return (
-    <motion.div
-      variants={fadeUp}
-      className="overflow-hidden rounded-3xl border border-[#D4A854]/15 bg-[#1A1D24] shadow-xl shadow-black/20 transition hover:-translate-y-1 hover:border-[#D4A854]/45"
-    >
-      <div className="relative aspect-[4/4.3] overflow-hidden bg-[#111318]">
-        <img
-          src={image}
-          alt={name}
-          loading="lazy"
-          className="h-full w-full object-cover"
-          onError={(e) => {
-            const target = e.currentTarget;
-            target.style.display = "none";
-            const fallback = target.nextElementSibling as HTMLElement;
-            if (fallback) fallback.classList.remove("hidden");
-          }}
-        />
-        <div className="hidden h-full w-full">
-          <InitialsAvatar name={name} />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#08111F]/80 via-[#08111F]/10 to-transparent" />
+    <div className="section-intro">
+      <div className="eyebrow">
+        <span>{num}</span>
+        <i />
+        <b>{eyebrow}</b>
       </div>
-      <div className="p-5">
-        <h3 className="text-lg font-semibold text-[#F5F1E8]">{name}</h3>
-        <p className="mt-1 text-sm text-[#D4A854]">{role}</p>
-        <p className="mt-3 text-sm leading-7 text-[#B8BDC7]">{bio}</p>
+      <h2>{title}</h2>
+      {children && <p>{children}</p>}
+    </div>
+  );
+}
+
+function TeamCard({ name, role, image, bio }: (typeof teamMembers)[number]) {
+  const [imgError, setImgError] = React.useState(false);
+
+  return (
+    <article className="team-card">
+      <div className="team-photo">
+        {!imgError ? (
+          <img src={image} alt={name} loading="lazy" onError={() => setImgError(true)} />
+        ) : (
+          <div className="team-fallback">{initials(name)}</div>
+        )}
       </div>
-    </motion.div>
+      <div className="team-info">
+        <h3>{name}</h3>
+        <span>{role}</span>
+        <p>{bio}</p>
+      </div>
+    </article>
   );
 }
 
 export default function ZaheerLawFirmWebsite() {
   return (
-    <div className="min-h-screen bg-[#08111F] text-[#F5F1E8] antialiased">
-      <a
-        href={`https://wa.me/${firm.contact.whatsapp.replace(/\+/g, "")}`}
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Chat on WhatsApp"
-        className="fixed bottom-5 right-5 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-emerald-600 text-white shadow-2xl transition hover:scale-105"
-      >
-        <MessageCircle className="h-7 w-7" />
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+        :root {
+          --navy: #102a43;
+          --navy-2: #15385f;
+          --blue-soft: #eef4fb;
+          --gold: #b8892f;
+          --gold-2: #d4aa56;
+          --ivory: #fffaf2;
+          --paper: #ffffff;
+          --ink: #15202b;
+          --muted: #627184;
+          --line: rgba(16,42,67,.14);
+          --shadow: 0 24px 70px rgba(16,42,67,.12);
+        }
+
+        html { scroll-behavior: smooth; }
+        * { box-sizing: border-box; }
+        body { margin: 0; background: var(--ivory); color: var(--ink); font-family: Inter, sans-serif; }
+        a { color: inherit; }
+
+        .top-strip {
+          background: var(--navy);
+          color: rgba(255,255,255,.82);
+          font-size: 12px;
+          letter-spacing: .05em;
+        }
+        .top-strip-inner {
+          max-width: 1240px;
+          margin: 0 auto;
+          padding: 10px 24px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 16px;
+          flex-wrap: wrap;
+        }
+        .top-strip a { text-decoration: none; color: #fff; }
+
+        .navbar {
+          position: sticky;
+          top: 0;
+          z-index: 50;
+          background: rgba(255,250,242,.96);
+          backdrop-filter: blur(18px);
+          border-bottom: 1px solid var(--line);
+        }
+        .nav-inner {
+          max-width: 1240px;
+          margin: 0 auto;
+          padding: 18px 24px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 24px;
+        }
+        .brand {
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          text-decoration: none;
+          min-width: 290px;
+        }
+        .brand-mark {
+          width: 52px;
+          height: 52px;
+          display: grid;
+          place-items: center;
+          color: var(--gold);
+          border: 1px solid rgba(184,137,47,.45);
+          background: #fff;
+        }
+        .brand-title {
+          font-family: 'Cormorant Garamond', serif;
+          font-size: 22px;
+          font-weight: 700;
+          color: var(--navy);
+          line-height: 1;
+        }
+        .brand-subtitle {
+          margin-top: 5px;
+          font-size: 11px;
+          color: var(--muted);
+          text-transform: uppercase;
+          letter-spacing: .16em;
+        }
+        .nav-links {
+          display: flex;
+          align-items: center;
+          gap: 24px;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+        }
+        .nav-links a {
+          text-decoration: none;
+          color: var(--navy);
+          font-size: 12px;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: .12em;
+        }
+        .nav-links a:hover { color: var(--gold); }
+        .nav-cta {
+          text-decoration: none;
+          background: var(--gold);
+          color: white;
+          padding: 12px 18px;
+          font-size: 12px;
+          font-weight: 800;
+          letter-spacing: .12em;
+          text-transform: uppercase;
+        }
+        .nav-cta:hover { background: var(--navy); }
+
+        .wa-float {
+          position: fixed;
+          right: 22px;
+          bottom: 22px;
+          z-index: 80;
+          width: 56px;
+          height: 56px;
+          display: grid;
+          place-items: center;
+          border-radius: 999px;
+          background: #18a85b;
+          color: white;
+          box-shadow: 0 18px 38px rgba(0,0,0,.18);
+          text-decoration: none;
+        }
+        .wa-float svg { width: 26px; height: 26px; fill: currentColor; }
+
+        .hero {
+          position: relative;
+          overflow: hidden;
+          background:
+            linear-gradient(90deg, rgba(16,42,67,.94), rgba(16,42,67,.77)),
+            radial-gradient(circle at 76% 24%, rgba(212,170,86,.22), transparent 28%),
+            var(--navy);
+          color: white;
+        }
+        .hero::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          opacity: .08;
+          background-image: linear-gradient(45deg, transparent 48%, #fff 49%, #fff 51%, transparent 52%);
+          background-size: 44px 44px;
+        }
+        .hero-inner {
+          position: relative;
+          max-width: 1240px;
+          margin: 0 auto;
+          padding: 90px 24px 86px;
+          display: grid;
+          grid-template-columns: 1.05fr .95fr;
+          gap: 54px;
+          align-items: center;
+        }
+        .hero-kicker {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          color: var(--gold-2);
+          font-size: 12px;
+          font-weight: 800;
+          text-transform: uppercase;
+          letter-spacing: .18em;
+          margin-bottom: 22px;
+        }
+        .hero-kicker i { width: 46px; height: 1px; background: var(--gold-2); display: block; }
+        .hero h1 {
+          margin: 0;
+          font-family: 'Cormorant Garamond', serif;
+          font-size: clamp(48px, 7vw, 86px);
+          line-height: .96;
+          letter-spacing: -.02em;
+          font-weight: 700;
+        }
+        .hero h1 span { color: var(--gold-2); }
+        .hero-lead {
+          max-width: 690px;
+          margin: 26px 0 0;
+          font-size: 18px;
+          line-height: 1.9;
+          color: rgba(255,255,255,.82);
+        }
+        .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 34px; }
+        .btn-primary, .btn-secondary {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 48px;
+          padding: 0 22px;
+          text-decoration: none;
+          font-size: 12px;
+          font-weight: 900;
+          letter-spacing: .14em;
+          text-transform: uppercase;
+        }
+        .btn-primary { background: var(--gold-2); color: var(--navy); }
+        .btn-primary:hover { background: white; }
+        .btn-secondary { border: 1px solid rgba(255,255,255,.38); color: white; }
+        .btn-secondary:hover { border-color: var(--gold-2); color: var(--gold-2); }
+
+        .visual-card {
+          background: rgba(255,255,255,.08);
+          border: 1px solid rgba(255,255,255,.18);
+          box-shadow: 0 30px 80px rgba(0,0,0,.24);
+        }
+        .visual-court svg { width: 100%; height: auto; display: block; }
+        .visual-caption {
+          padding: 20px 24px;
+          display: grid;
+          gap: 6px;
+          border-top: 1px solid rgba(255,255,255,.14);
+        }
+        .visual-caption span {
+          color: var(--gold-2);
+          font-size: 12px;
+          text-transform: uppercase;
+          letter-spacing: .18em;
+          font-weight: 800;
+        }
+        .visual-caption strong {
+          font-family: 'Cormorant Garamond', serif;
+          font-size: 26px;
+          line-height: 1.1;
+          color: white;
+        }
+
+        .stats-bar {
+          background: var(--paper);
+          border-bottom: 1px solid var(--line);
+        }
+        .stats-grid {
+          max-width: 1240px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          border-left: 1px solid var(--line);
+        }
+        .stat-cell {
+          padding: 26px 24px;
+          border-right: 1px solid var(--line);
+          text-align: center;
+        }
+        .stat-cell strong {
+          display: block;
+          font-family: 'Cormorant Garamond', serif;
+          color: var(--navy);
+          font-size: 34px;
+          line-height: 1;
+        }
+        .stat-cell span {
+          display: block;
+          margin-top: 7px;
+          color: var(--muted);
+          font-size: 12px;
+          font-weight: 800;
+          text-transform: uppercase;
+          letter-spacing: .12em;
+        }
+
+        .section { padding: 92px 24px; }
+        .section.alt { background: var(--blue-soft); }
+        .section-inner { max-width: 1240px; margin: 0 auto; }
+        .section-intro { max-width: 760px; margin-bottom: 46px; }
+        .section-intro.center { margin-left: auto; margin-right: auto; text-align: center; }
+        .eyebrow {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          color: var(--gold);
+          font-size: 12px;
+          text-transform: uppercase;
+          letter-spacing: .18em;
+          font-weight: 900;
+          margin-bottom: 16px;
+        }
+        .section-intro.center .eyebrow { justify-content: center; }
+        .eyebrow i { width: 38px; height: 1px; display: block; background: var(--gold); }
+        .section-intro h2 {
+          margin: 0;
+          font-family: 'Cormorant Garamond', serif;
+          font-size: clamp(36px, 5vw, 58px);
+          line-height: 1;
+          color: var(--navy);
+          font-weight: 700;
+        }
+        .section-intro h2 em { color: var(--gold); font-style: normal; }
+        .section-intro p {
+          margin: 20px 0 0;
+          color: var(--muted);
+          font-size: 17px;
+          line-height: 1.9;
+        }
+
+        .about-grid {
+          display: grid;
+          grid-template-columns: .92fr 1.08fr;
+          gap: 44px;
+          align-items: start;
+        }
+        .profile-card {
+          background: var(--paper);
+          border: 1px solid var(--line);
+          box-shadow: var(--shadow);
+        }
+        .profile-top {
+          background: var(--navy);
+          color: white;
+          padding: 34px;
+          display: grid;
+          gap: 18px;
+        }
+        .profile-top .lawmark { color: var(--gold-2); }
+        .profile-top h3 {
+          margin: 0;
+          font-family: 'Cormorant Garamond', serif;
+          font-size: 36px;
+          line-height: 1;
+        }
+        .profile-top p { margin: 0; color: rgba(255,255,255,.77); line-height: 1.8; }
+        .profile-list { padding: 28px 34px; display: grid; gap: 16px; }
+        .profile-list div { display: flex; gap: 12px; color: var(--muted); line-height: 1.7; }
+        .profile-list b { color: var(--navy); }
+        .tick { width: 8px; height: 8px; background: var(--gold); margin-top: 9px; flex: 0 0 auto; }
+
+        .practice-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          border-left: 1px solid var(--line);
+          border-top: 1px solid var(--line);
+          background: var(--paper);
+          box-shadow: var(--shadow);
+        }
+        .practice-card {
+          min-height: 250px;
+          padding: 34px;
+          border-right: 1px solid var(--line);
+          border-bottom: 1px solid var(--line);
+          background: white;
+          transition: .25s ease;
+        }
+        .practice-card:hover { background: var(--navy); transform: translateY(-3px); }
+        .practice-num { color: var(--gold); font-weight: 900; letter-spacing: .16em; font-size: 12px; }
+        .practice-card h3 {
+          margin: 46px 0 16px;
+          color: var(--navy);
+          font-family: 'Cormorant Garamond', serif;
+          font-size: 29px;
+          line-height: 1;
+        }
+        .practice-card p { margin: 0; color: var(--muted); line-height: 1.8; }
+        .practice-card:hover h3, .practice-card:hover p { color: white; }
+        .practice-card:hover .practice-num { color: var(--gold-2); }
+
+        .overseas-layout {
+          display: grid;
+          grid-template-columns: .9fr 1.1fr;
+          gap: 42px;
+          align-items: start;
+        }
+        .overseas-box {
+          background: var(--navy);
+          color: white;
+          padding: 38px;
+          box-shadow: var(--shadow);
+        }
+        .overseas-box h3 {
+          margin: 0;
+          font-family: 'Cormorant Garamond', serif;
+          font-size: 36px;
+          line-height: 1;
+        }
+        .overseas-box p { color: rgba(255,255,255,.78); line-height: 1.9; }
+        .service-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+        .service-item {
+          background: white;
+          border: 1px solid var(--line);
+          padding: 18px;
+          display: flex;
+          gap: 12px;
+          align-items: flex-start;
+          color: var(--muted);
+          line-height: 1.6;
+          font-weight: 600;
+        }
+
+        .credentials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+        .credential-card {
+          background: white;
+          border: 1px solid var(--line);
+          padding: 28px;
+          min-height: 150px;
+        }
+        .credential-card i { display: block; width: 32px; height: 2px; background: var(--gold); margin-bottom: 22px; }
+        .credential-card p { margin: 0; color: var(--muted); line-height: 1.8; font-weight: 600; }
+
+        .judgments-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          border-left: 1px solid var(--line);
+          border-top: 1px solid var(--line);
+          background: white;
+        }
+        .judgment {
+          padding: 18px 20px;
+          border-right: 1px solid var(--line);
+          border-bottom: 1px solid var(--line);
+          font-family: 'Cormorant Garamond', serif;
+          color: var(--navy);
+          font-size: 18px;
+          font-weight: 700;
+          letter-spacing: .04em;
+        }
+        .judgment:hover { color: var(--gold); background: var(--ivory); }
+
+        .team-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 18px;
+        }
+        .team-card {
+          background: white;
+          border: 1px solid var(--line);
+          box-shadow: 0 14px 44px rgba(16,42,67,.08);
+          overflow: hidden;
+        }
+        .team-photo {
+          aspect-ratio: 4/4.5;
+          background: var(--blue-soft);
+          display: grid;
+          place-items: center;
+          overflow: hidden;
+        }
+        .team-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .team-fallback {
+          color: var(--gold);
+          font-family: 'Cormorant Garamond', serif;
+          font-size: 34px;
+          font-weight: 700;
+          letter-spacing: .1em;
+        }
+        .team-info { padding: 22px; }
+        .team-info h3 {
+          margin: 0;
+          font-family: 'Cormorant Garamond', serif;
+          color: var(--navy);
+          font-size: 26px;
+          line-height: 1;
+        }
+        .team-info span { display: block; margin-top: 7px; color: var(--gold); font-weight: 800; font-size: 13px; }
+        .team-info p { margin: 14px 0 0; color: var(--muted); line-height: 1.75; font-size: 14px; }
+
+        .contact-layout { display: grid; grid-template-columns: .92fr 1.08fr; gap: 40px; }
+        .contact-panel {
+          background: var(--navy);
+          color: white;
+          padding: 38px;
+          box-shadow: var(--shadow);
+        }
+        .contact-panel h3 {
+          margin: 0;
+          font-family: 'Cormorant Garamond', serif;
+          font-size: 42px;
+          line-height: 1;
+        }
+        .contact-panel p { color: rgba(255,255,255,.78); line-height: 1.9; }
+        .contact-methods { display: grid; gap: 14px; margin-top: 26px; }
+        .contact-method {
+          padding: 16px 18px;
+          background: rgba(255,255,255,.08);
+          border: 1px solid rgba(255,255,255,.14);
+          text-decoration: none;
+          color: white;
+          display: flex;
+          justify-content: space-between;
+          gap: 12px;
+          align-items: center;
+        }
+        .office-grid { display: grid; gap: 18px; }
+        .office-card {
+          background: white;
+          border: 1px solid var(--line);
+          padding: 28px;
+        }
+        .office-card small { color: var(--gold); text-transform: uppercase; font-weight: 900; letter-spacing: .14em; }
+        .office-card h3 { margin: 10px 0; color: var(--navy); font-family: 'Cormorant Garamond', serif; font-size: 30px; }
+        .office-card p { margin: 0; color: var(--muted); line-height: 1.8; }
+        .map-link { display: inline-block; margin-top: 18px; color: var(--gold); text-decoration: none; font-weight: 900; font-size: 12px; text-transform: uppercase; letter-spacing: .14em; }
+
+        .footer { background: var(--navy); color: rgba(255,255,255,.75); }
+        .footer-inner {
+          max-width: 1240px;
+          margin: 0 auto;
+          padding: 42px 24px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 24px;
+        }
+        .footer strong { display: block; color: white; font-family: 'Cormorant Garamond', serif; font-size: 26px; }
+        .footer span { color: var(--gold-2); }
+
+        @media (max-width: 1080px) {
+          .hero-inner, .about-grid, .overseas-layout, .contact-layout { grid-template-columns: 1fr; }
+          .practice-grid, .credentials-grid { grid-template-columns: repeat(2, 1fr); }
+          .judgments-grid, .team-grid { grid-template-columns: repeat(3, 1fr); }
+          .nav-links { display: none; }
+        }
+        @media (max-width: 760px) {
+          .top-strip-inner { justify-content: center; text-align: center; }
+          .nav-inner { padding: 14px 18px; }
+          .brand { min-width: 0; }
+          .brand-title { font-size: 19px; }
+          .brand-subtitle { font-size: 10px; }
+          .nav-cta { display: none; }
+          .hero-inner { padding: 62px 18px 58px; }
+          .hero h1 { font-size: 46px; }
+          .stats-grid, .practice-grid, .service-grid, .credentials-grid, .judgments-grid, .team-grid { grid-template-columns: 1fr; }
+          .section { padding: 66px 18px; }
+          .footer-inner { flex-direction: column; text-align: center; }
+        }
+      `}</style>
+
+      <a className="wa-float" href={`https://wa.me/${firm.contact.whatsapp}`} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88M20.46 3.49A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.31-1.65A11.88 11.88 0 0 0 12.05 23.8h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.49-8.41Z" /></svg>
       </a>
 
-      <header className="sticky top-0 z-40 border-b border-[#D4A854]/15 bg-[#08111F]/95 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-          <a href="#home" className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#D4A854]/10 ring-1 ring-[#D4A854]/30">
-              <Scale className="h-5 w-5 text-[#D4A854]" />
-            </div>
-            <div>
-              <div className="text-sm font-semibold uppercase tracking-[0.22em] text-[#D4A854]">
-                Zaheer & Zaheer
-              </div>
-              <div className="text-sm text-[#B8BDC7]">
-                Advocates & Legal Consultants
-              </div>
-            </div>
-          </a>
-
-          <nav className="hidden items-center gap-7 text-sm text-[#B8BDC7] lg:flex">
-            <a href="#about" className="hover:text-[#F5F1E8]">About</a>
-            <a href="#practice-areas" className="hover:text-[#F5F1E8]">Practice Areas</a>
-            <a href="#overseas" className="hover:text-[#F5F1E8]">Overseas Pakistanis</a>
-            <a href="#reported-judgments" className="hover:text-[#F5F1E8]">Reported Judgments</a>
-            <a href="#team" className="hover:text-[#F5F1E8]">Team</a>
-            <a href="#contact" className="hover:text-[#F5F1E8]">Contact</a>
-          </nav>
-
-          <div className="hidden items-center gap-3 md:flex">
-            <ContactIconButton href={`tel:${firm.contact.phone}`} label="Call" icon={Phone} />
-            <ContactIconButton
-              href={`https://wa.me/${firm.contact.whatsapp.replace(/\+/g, "")}`}
-              label="WhatsApp"
-              icon={MessageCircle}
-              external
-            />
-            <ContactIconButton href={`mailto:${firm.contact.email}`} label="Email" icon={Mail} />
-          </div>
-        </div>
-      </header>
-
-      <div className="sticky top-[76px] z-30 border-b border-[#D4A854]/15 bg-[#08111F]/95 px-4 py-3 backdrop-blur-lg lg:hidden">
-        <div className="flex gap-3 overflow-x-auto text-sm">
-          {[
-            ["About", "#about"],
-            ["Practice", "#practice-areas"],
-            ["Overseas", "#overseas"],
-            ["Judgments", "#reported-judgments"],
-            ["Team", "#team"],
-            ["Contact", "#contact"],
-          ].map(([label, href]) => (
-            <a
-              key={label}
-              href={href}
-              className="shrink-0 rounded-full border border-[#D4A854]/20 bg-[#1A1D24] px-4 py-2 text-[#F5F1E8]"
-            >
-              {label}
-            </a>
-          ))}
+      <div className="top-strip">
+        <div className="top-strip-inner">
+          <span>{firm.designation} · Karachi, Pakistan</span>
+          <span>
+            <a href={`tel:${firm.contact.phone}`}>{firm.contact.phone}</a> &nbsp; | &nbsp;
+            <a href={`mailto:${firm.contact.email}`}>{firm.contact.email}</a>
+          </span>
         </div>
       </div>
 
+      <header className="navbar">
+        <div className="nav-inner">
+          <a href="#home" className="brand">
+            <div className="brand-mark"><LawMark size={32} /></div>
+            <div>
+              <div className="brand-title">Zaheer &amp; Zaheer</div>
+              <div className="brand-subtitle">Advocates &amp; Legal Consultants</div>
+            </div>
+          </a>
+          <ul className="nav-links">
+            {[['About', '#about'], ['Practice', '#practice'], ['Overseas', '#overseas'], ['Judgments', '#judgments'], ['Team', '#team'], ['Contact', '#contact']].map(([label, href]) => (
+              <li key={label}><a href={href}>{label}</a></li>
+            ))}
+          </ul>
+          <a href="#contact" className="nav-cta">Consultation</a>
+        </div>
+      </header>
+
       <main>
-        <section id="home" className="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28">
-          <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
-            <motion.div initial="hidden" animate="visible" variants={fadeUp} transition={{ duration: 0.6 }}>
-              <div className="mb-6 inline-flex rounded-full border border-[#D4A854]/20 bg-[#D4A854]/10 px-4 py-2 text-xs uppercase tracking-[0.18em] text-[#D4A854]">
-                Established {firm.established}
-              </div>
-              <h1 className="text-4xl font-semibold tracking-tight text-[#F5F1E8] sm:text-5xl md:text-6xl">
-                {firm.name}
-              </h1>
-              <p className="mt-5 text-lg text-[#D4A854] md:text-xl">
-                {firm.tagline}
+        <section id="home" className="hero">
+          <div className="hero-inner">
+            <div>
+              <div className="hero-kicker"><i /> Established {firm.established} · Karachi</div>
+              <h1>{firm.name.split(' Advocates')[0]} <span>Advocates</span></h1>
+              <p className="hero-lead">
+                A Karachi-based law firm led by Zaheer Minhas, Advocate Supreme Court of Pakistan, providing superior court advocacy, corporate litigation, labour advisory, regulatory representation and legal services for overseas Pakistanis.
               </p>
-              <p className="mt-6 max-w-2xl text-base leading-8 text-[#B8BDC7] md:text-lg">
-                Karachi-based law firm focused on superior court advocacy, corporate litigation,
-                labour and industrial relations, property disputes, regulatory matters, and
-                legal services for overseas Pakistanis.
-              </p>
-              <div className="mt-10 flex flex-wrap gap-4">
-                <a
-                  href="#contact"
-                  className="rounded-2xl bg-[#D4A854] px-5 py-3 text-sm font-semibold text-[#08111F] transition hover:bg-[#E6BE6D]"
-                >
-                  Request Consultation
-                </a>
-                <a
-                  href="#overseas"
-                  className="rounded-2xl border border-[#D4A854]/25 bg-[#1A1D24] px-5 py-3 text-sm font-semibold text-[#F5F1E8] transition hover:border-[#D4A854]/60"
-                >
-                  Overseas Pakistanis
-                </a>
+              <div className="hero-actions">
+                <a href="#contact" className="btn-primary">Request Consultation</a>
+                <a href="#practice" className="btn-secondary">View Practice Areas</a>
               </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 28 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              className="rounded-[2rem] border border-[#D4A854]/20 bg-[#1A1D24] p-6 shadow-2xl shadow-black/30"
-            >
-              <p className="text-xs uppercase tracking-[0.2em] text-[#D4A854]">
-                Firm Profile
-              </p>
-              <h3 className="mt-2 text-2xl font-semibold text-[#F5F1E8]">
-                Authority, strategy and courtroom depth
-              </h3>
-              <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                {stats.map(([value, label]) => (
-                  <div key={label} className="rounded-2xl border border-[#D4A854]/15 bg-[#08111F] p-5">
-                    <div className="text-3xl font-semibold text-[#D4A854]">{value}</div>
-                    <div className="mt-2 text-sm text-[#B8BDC7]">{label}</div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
+            </div>
+            <LegalIllustration />
           </div>
         </section>
 
-        <section id="about" className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-          <SectionHeading
-            eyebrow="About"
-            title="Partner-led legal practice with strategic litigation strength"
-            description="Zaheer & Zaheer Advocates provides litigation, advisory and regulatory representation with emphasis on structured drafting, careful legal analysis and professional case handling."
-          />
-
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {[
-              "Superior Court Practice",
-              "Corporate Advisory",
-              "Employer-Side Labour Strategy",
-              "Regulatory Representation",
-            ].map((item) => (
-              <div key={item} className="rounded-3xl border border-[#D4A854]/15 bg-[#1A1D24] p-6">
-                <CheckCircle2 className="h-6 w-6 text-[#D4A854]" />
-                <h3 className="mt-4 text-lg font-semibold text-[#F5F1E8]">{item}</h3>
+        <section className="stats-bar" aria-label="Firm statistics">
+          <div className="stats-grid">
+            {stats.map((item) => (
+              <div className="stat-cell" key={item.label}>
+                <strong>{item.value}</strong>
+                <span>{item.label}</span>
               </div>
             ))}
           </div>
         </section>
 
-        <section id="practice-areas" className="border-y border-[#D4A854]/15 bg-[#14171D]">
-          <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-            <SectionHeading
-              eyebrow="Practice Areas"
-              title="Focused legal services"
-              description="Advisory, litigation and dispute strategy across corporate, constitutional, labour, property and regulatory matters."
-            />
+        <section id="about" className="section">
+          <div className="section-inner about-grid">
+            <div className="profile-card">
+              <div className="profile-top">
+                <div className="lawmark"><LawMark size={54} /></div>
+                <h3>Supreme Court advocacy with institutional discipline.</h3>
+                <p>
+                  The firm combines courtroom preparation, structured drafting and practical legal strategy for individuals, businesses, institutions and overseas clients.
+                </p>
+              </div>
+              <div className="profile-list">
+                <div><span className="tick" /><span><b>Lead Counsel:</b> Zaheer Minhas, Advocate Supreme Court of Pakistan.</span></div>
+                <div><span className="tick" /><span><b>Presence:</b> DHA Karachi and Bahria Town Karachi.</span></div>
+                <div><span className="tick" /><span><b>Focus:</b> litigation, regulatory strategy, corporate advisory and labour law.</span></div>
+              </div>
+            </div>
+            <div>
+              <SectionIntro num="01" eyebrow="About the Firm" title={<>Partner-led legal practice with <em>strategic litigation strength.</em></>}>
+                Zaheer &amp; Zaheer Advocates provides litigation, advisory and regulatory representation with emphasis on careful legal analysis, professional case handling and court-ready documentation.
+              </SectionIntro>
+              <div className="credentials-grid">
+                {credentials.slice(0, 3).map((item) => (
+                  <div className="credential-card" key={item}><i /><p>{item}</p></div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
 
-            <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-              {practiceAreas.map(([title, description, Icon]: any) => (
-                <motion.div
-                  key={title}
-                  variants={fadeUp}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  className="rounded-3xl border border-[#D4A854]/15 bg-[#1A1D24] p-6 transition hover:-translate-y-1 hover:border-[#D4A854]/45"
-                >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#D4A854]/10">
-                    <Icon className="h-6 w-6 text-[#D4A854]" />
-                  </div>
-                  <h3 className="mt-5 text-xl font-semibold text-[#F5F1E8]">{title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-[#B8BDC7]">{description}</p>
-                </motion.div>
+        <section id="practice" className="section alt">
+          <div className="section-inner">
+            <SectionIntro num="02" eyebrow="Practice Areas" title={<>Focused legal services for <em>serious disputes.</em></>}>
+              Advisory, litigation and dispute strategy across corporate, constitutional, labour, property and regulatory matters.
+            </SectionIntro>
+            <div className="practice-grid">
+              {practiceAreas.map((area) => (
+                <article className="practice-card" key={area.name}>
+                  <div className="practice-num">{area.num}</div>
+                  <h3>{area.name}</h3>
+                  <p>{area.desc}</p>
+                </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="overseas" className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-            <SectionHeading
-              eyebrow="Overseas Pakistanis"
-              title="Legal Services for Overseas Pakistanis"
-              description="The firm assists overseas Pakistanis, expatriates and foreign-based clients through online consultation, WhatsApp communication, remote case handling and court representation in Pakistan."
-            />
-
-            <div className="grid gap-4 sm:grid-cols-2">
+        <section id="overseas" className="section">
+          <div className="section-inner overseas-layout">
+            <div className="overseas-box">
+              <SectionIntro num="03" eyebrow="Overseas Pakistanis" title={<>Remote legal assistance for clients <em>outside Pakistan.</em></>} />
+              <p>
+                Matters may be managed through WhatsApp, email, video consultation and properly executed authority documents, enabling clients abroad to pursue or defend legal proceedings in Pakistan without unnecessary travel.
+              </p>
+              <a href={`https://wa.me/${firm.contact.whatsapp}`} target="_blank" rel="noreferrer" className="btn-primary">Discuss on WhatsApp</a>
+            </div>
+            <div className="service-grid">
               {overseasServices.map((service) => (
-                <div key={service} className="flex gap-3 rounded-3xl border border-[#D4A854]/15 bg-[#1A1D24] p-5">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-[#D4A854]" />
-                  <p className="text-sm leading-7 text-[#B8BDC7]">{service}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="mt-10 rounded-[2rem] border border-[#D4A854]/25 bg-[#D4A854]/10 p-6">
-            <h3 className="text-xl font-semibold text-[#F5F1E8]">Remote Legal Handling</h3>
-            <p className="mt-3 text-sm leading-7 text-[#B8BDC7]">
-              Matters may be managed through WhatsApp, email, video consultation and properly
-              executed authority documents, enabling clients abroad to pursue or defend legal
-              proceedings in Pakistan without unnecessary travel.
-            </p>
-          </div>
-        </section>
-
-        <section id="credentials" className="border-y border-[#D4A854]/15 bg-[#14171D]">
-          <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-            <SectionHeading
-              eyebrow="Credentials"
-              title="Professional track record"
-              description="The firm has handled substantial litigation and advisory work for corporate clients, institutions and individuals across Pakistan."
-            />
-
-            <div className="mt-12 grid gap-4 md:grid-cols-2">
-              {[
-                "Over 250 corporate clients served.",
-                "Over 1,500 corporate matters handled before High Courts.",
-                "Over 200 matters handled before the Supreme Court of Pakistan.",
-                "25+ reported judgments across various areas of law.",
-                "Ongoing advisory and retainer relationships.",
-                "Representation in high-value commercial and regulatory disputes.",
-              ].map((item) => (
-                <div key={item} className="flex gap-4 rounded-3xl border border-[#D4A854]/15 bg-[#1A1D24] p-5">
-                  <Award className="mt-1 h-5 w-5 shrink-0 text-[#D4A854]" />
-                  <p className="text-sm leading-7 text-[#B8BDC7]">{item}</p>
-                </div>
+                <div className="service-item" key={service}><span className="tick" />{service}</div>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="reported-judgments" className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-          <SectionHeading
-            eyebrow="Reported Judgments"
-            title="Reported cases and legal precedents"
-            description="The firm has contributed to reported judgments across commercial, constitutional, banking, civil, regulatory and corporate matters. Selected reported citations include:"
-          />
-
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {reportedJudgments.map((citation) => (
-              <div
-                key={citation}
-                className="rounded-2xl border border-[#D4A854]/20 bg-[#1A1D24] px-5 py-4 text-sm font-semibold tracking-wide text-[#D4A854]"
-              >
-                {citation}
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section id="team" className="border-y border-[#D4A854]/15 bg-[#14171D]">
-          <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-            <SectionHeading
-              eyebrow="Our Team"
-              title="Partners, associates and administrative support"
-              description="A structured team supporting litigation, advisory, drafting, research, coordination and client representation."
-            />
-
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.06 } } }}
-              className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-            >
-              {teamMembers.map((member) => (
-                <TeamCard key={member.name} {...member} />
+        <section id="credentials" className="section alt">
+          <div className="section-inner">
+            <SectionIntro num="04" eyebrow="Credentials" title={<>Professional track record and <em>reported work.</em></>}>
+              The firm has handled substantial litigation and advisory work for corporate clients, institutions and individuals across Pakistan.
+            </SectionIntro>
+            <div className="credentials-grid">
+              {credentials.map((item) => (
+                <div className="credential-card" key={item}><i /><p>{item}</p></div>
               ))}
-            </motion.div>
+            </div>
           </div>
         </section>
 
-        <section id="contact" className="bg-[#08111F]">
-          <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-            <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
-              <div>
-                <SectionHeading
-                  eyebrow="Contact"
-                  title="Connect with the firm"
-                  description="For consultation, legal assistance or professional engagement, contact the firm through phone, WhatsApp or email."
-                />
+        <section id="judgments" className="section">
+          <div className="section-inner">
+            <SectionIntro num="05" eyebrow="Reported Judgments" title={<>Reported cases and <em>legal precedents.</em></>}>
+              Selected citations from commercial, constitutional, banking, civil, regulatory and corporate matters.
+            </SectionIntro>
+            <div className="judgments-grid">
+              {reportedJudgments.map((citation) => (
+                <div className="judgment" key={citation}>{citation}</div>
+              ))}
+            </div>
+          </div>
+        </section>
 
-                <div className="mt-8 flex gap-4">
-                  <ContactIconButton href={`tel:${firm.contact.phone}`} label="Call" icon={Phone} />
-                  <ContactIconButton
-                    href={`https://wa.me/${firm.contact.whatsapp.replace(/\+/g, "")}`}
-                    label="WhatsApp"
-                    icon={MessageCircle}
-                    external
-                  />
-                  <ContactIconButton href={`mailto:${firm.contact.email}`} label="Email" icon={Mail} />
-                </div>
+        <section id="team" className="section alt">
+          <div className="section-inner">
+            <SectionIntro num="06" eyebrow="Our Team" title={<>Partners, associates and <em>administrative support.</em></>}>
+              A structured team supporting litigation, advisory, drafting, research, coordination and client representation.
+            </SectionIntro>
+            <div className="team-grid">
+              {teamMembers.map((member) => <TeamCard key={member.name} {...member} />)}
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="section">
+          <div className="section-inner contact-layout">
+            <div className="contact-panel">
+              <h3>Connect with the firm.</h3>
+              <p>
+                For consultation, legal assistance or professional engagement, contact the firm through phone, WhatsApp or email.
+              </p>
+              <div className="contact-methods">
+                <a className="contact-method" href={`tel:${firm.contact.phone}`}><span>Call</span><b>{firm.contact.phone}</b></a>
+                <a className="contact-method" href={`https://wa.me/${firm.contact.whatsapp}`} target="_blank" rel="noreferrer"><span>WhatsApp</span><b>Message Now</b></a>
+                <a className="contact-method" href={`mailto:${firm.contact.email}`}><span>Email</span><b>{firm.contact.email}</b></a>
               </div>
-
-              <div className="grid gap-6">
-                {firm.offices.map((office, index) => (
-                  <div key={office.name} className="rounded-3xl border border-[#D4A854]/15 bg-[#1A1D24] p-6">
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#D4A854]/10">
-                        <MapPin className="h-5 w-5 text-[#D4A854]" />
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-semibold text-[#F5F1E8]">{office.name}</h3>
-                        {index === 0 && (
-                          <p className="mt-1 text-xs uppercase tracking-[0.18em] text-[#D4A854]">
-                            Primary location
-                          </p>
-                        )}
-                      </div>
-                    </div>
-
-                    <p className="mt-4 text-sm leading-7 text-[#B8BDC7]">{office.address}</p>
-
-                    <a
-                      href={office.mapsUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="mt-5 inline-flex items-center gap-2 rounded-2xl bg-[#D4A854] px-4 py-3 text-sm font-semibold text-[#08111F] transition hover:bg-[#E6BE6D]"
-                    >
-                      Open Map
-                      <ExternalLink className="h-4 w-4" />
-                    </a>
-                  </div>
-                ))}
-              </div>
+            </div>
+            <div className="office-grid">
+              {firm.offices.map((office) => (
+                <article className="office-card" key={office.name}>
+                  <small>{office.label}</small>
+                  <h3>{office.name}</h3>
+                  <p>{office.address}</p>
+                  <a className="map-link" href={office.mapsUrl} target="_blank" rel="noreferrer">Open Map</a>
+                </article>
+              ))}
             </div>
           </div>
         </section>
       </main>
 
-      <footer className="border-t border-[#D4A854]/15 bg-[#0A0C10]">
-        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-10 md:flex-row md:items-center md:justify-between lg:px-8">
+      <footer className="footer">
+        <div className="footer-inner">
           <div>
-            <div className="text-lg font-semibold text-[#F5F1E8]">{firm.name}</div>
-            <div className="mt-1 text-sm text-[#B8BDC7]">{firm.tagline}</div>
-            <div className="mt-2 text-sm text-[#7E8490]">Established {firm.established}</div>
+            <strong>{firm.name}</strong>
+            <span>{firm.tagline} · Established {firm.established}</span>
           </div>
-
-          <div className="text-sm text-[#7E8490]">
-            © {new Date().getFullYear()} Zaheer & Zaheer Advocates. All rights reserved.
-          </div>
+          <div>© {new Date().getFullYear()} Zaheer &amp; Zaheer Advocates. All rights reserved.</div>
         </div>
       </footer>
-    </div>
+    </>
   );
 }
