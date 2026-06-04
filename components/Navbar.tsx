@@ -10,34 +10,38 @@ const navItems = [
   { name: "Services", href: "/services" },
   { name: "Team", href: "/team" },
   { name: "Judgments", href: "/judgments" },
-  { name: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-slate-950/95 backdrop-blur border-b border-amber-500/20">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <Link href="/" className="text-white font-bold text-lg">
+    <header className="relative z-50 bg-slate-950 border-b border-amber-500/20">
+      <nav className="max-w-7xl mx-auto px-6">
+        <div className="flex items-center justify-between h-20">
+          <Link href="/" className="text-white font-bold text-xl">
             Zaheer & Zaheer
           </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-sm font-medium text-slate-200 hover:text-amber-400 transition"
+                className="text-base font-semibold text-slate-200 hover:text-amber-400 transition"
               >
                 {item.name}
               </Link>
             ))}
+
+            <Link
+              href="/contact"
+              className="bg-amber-500 hover:bg-amber-400 text-black px-7 py-3 rounded-xl font-bold transition"
+            >
+              Contact
+            </Link>
           </div>
 
-          {/* Mobile Button */}
           <button
             onClick={() => setOpen(!open)}
             className="md:hidden text-white p-2"
@@ -47,10 +51,9 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile Menu */}
         {open && (
           <div className="md:hidden pb-4 space-y-2">
-            {navItems.map((item) => (
+            {[...navItems, { name: "Contact", href: "/contact" }].map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
