@@ -21,6 +21,15 @@ export default function RootLayout({
           {children}
         </main>
 
+        <a
+          href="https://wa.me/923334848228"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-400 text-white px-5 py-4 rounded-full font-bold shadow-lg transition"
+        >
+          WhatsApp
+        </a>
+
         <Footer />
       </body>
     </html>
