@@ -3,10 +3,6 @@ export default function Home() {
     <main className="bg-slate-950 text-white">
       <section className="min-h-screen flex items-center bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
         <div className="max-w-7xl mx-auto px-6 py-28">
-          <p className="text-amber-400 uppercase tracking-[5px] mb-5 font-semibold">
-            Advocates & Legal Consultants
-          </p>
-
           <h1 className="text-6xl md:text-8xl font-bold leading-tight mb-8 max-w-5xl">
             Zaheer & Zaheer
             <span className="block text-amber-400">Advocates</span>
